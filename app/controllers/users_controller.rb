@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  
   def show
     @user = User.find(params[:id])
   end
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(user_params) 
       redirect_to user_path
     else
       render 'edit'
@@ -35,5 +38,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :area, :password,
                                  :password_confirmation)
+  end
+  
+  def correct_user
+      @user = User.find(params[:id])
+      if @user != current_user
+      redirect_to root_path, alert: "不正なアクセスです"
+      end
   end
 end
