@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/microposts/app/views/layouts/_header.html.erb @ line 17 ActionView::CompiledTemplates#_app_views_layouts__header_html_erb__4380620727817847201_70205990866640:
+
+    [1;34m12[0m:                             Account <b class="caret"></b>
+    [1;34m13[0m:                         </a>
+    [1;34m14[0m:                         <ul class="dropdown-menu">
+    [1;34m15[0m:                             <li><%= link_to "Profile", currect_user %></li>
+    [1;34m16[0m:                             <% binding.pry %>
+ => [1;34m17[0m:                             <li><%= link_to "Setting" , edit_user_path(user) %></li>
+    [1;34m18[0m:                             <li class="divider"></li>
+    [1;34m19[0m:                             <li>
+    [1;34m20[0m:                                 <%= link_to "Log out", logout_path, method: "delete" %>
+    [1;34m21[0m:                             </li>
+    [1;34m22[0m:                         </ul>
+
