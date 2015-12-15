@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-    belongs_to :user
-    validates :user_id, presence: true
-    validates :content, presence: true, length: { maximum: 140 }
     before_save { self.email = email.downcase }
     validates :name, presence: true, length: { maximum: 50 }
     validates :area, presence: true, on: :update, length: { maximum: 50 }
