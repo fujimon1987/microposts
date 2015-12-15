@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
-
+  
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-　
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params) 
@@ -48,3 +48,4 @@ class UsersController < ApplicationController
       end
   end
 end
+
