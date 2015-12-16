@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
     # あるユーザーをフォローしているかどうか？
     def following?(other_user)
+        # Relationship.exists?(followed_id: other_user.id, follower_id: self.id)
         following_users.include?(other_user)
     end
 end
