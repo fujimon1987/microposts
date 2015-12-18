@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -34,6 +34,17 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.following_users
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+  end
+    
+    
   private
   
   def user_params
